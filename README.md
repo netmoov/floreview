@@ -1,3 +1,9 @@
+# Floreview — proposition de refonte ciel & fleurs (2026)
+
+**Version actuelle :** interface blanche et bleu cobalt, portrait de fleuriste, scènes florales, nuages et soleil animés. Toutes les photos principales sont des créations originales locales. Voir `GUIDE-REFONTE-CIEL-2026.md`.
+
+---
+
 # Floreview — Concept de refonte institutionnelle 2026
 
 **Prototype indépendant à présenter à la société Floreview. Il n'est pas affilié ni approuvé par Floreview.** Ce dépôt est **distinct** de l'application de révision botanique `netmoov/botanique`.

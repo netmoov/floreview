@@ -58,6 +58,47 @@
     $(selector)?.addEventListener('input', () => updateFilters(type));
   });
 
+
+  // Pictogramme floral original au survol des titres et cartes.
+  // Désactivé sur écrans tactiles et en cas de réduction des animations.
+  const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)');
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  if(finePointer.matches && !reducedMotion.matches){
+    const flower = document.createElement('span');
+    flower.className = 'flower-pointer';
+    flower.setAttribute('aria-hidden','true');
+    document.body.append(flower);
+    const targetSelector = [
+      '.triptych-panel','.feature-card','.story-card','.inspo-card',
+      '.event-mini','.agenda-row','.btn','.nav-link','.round-arrow',
+      '.text-link','.universe-feature h2','.universe-page-hero h1',
+      '.section-head h2','.hero-sky h1','.page-hero h1',
+      '.sky-garden h2','.split-copy h2','.member-band h2',
+      '.universe-page-bottom h2'
+    ].join(',');
+    let active = null;
+    let px=0,py=0,raf=0;
+    const move = () => {
+      flower.style.transform = `translate3d(${px+13}px, ${py+14}px, 0) rotate(-11deg) scale(1)`;
+      raf=0;
+    };
+    document.addEventListener('pointermove', e => {
+      if(e.pointerType==='touch') return;
+      px=e.clientX;py=e.clientY;
+      const candidate = e.target.closest(targetSelector);
+      if(candidate!==active){
+        if(active) active.classList.remove('is-flower-hovered','flower-cursor-target');
+        active=candidate;
+        if(active) active.classList.add('is-flower-hovered','flower-cursor-target');
+        flower.classList.toggle('is-active',!!active);
+      }
+      if(active&&!raf) raf=requestAnimationFrame(move);
+    },{passive:true});
+    document.addEventListener('pointerleave',()=>flower.classList.remove('is-active'));
+    window.addEventListener('blur',()=>flower.classList.remove('is-active'));
+    window.addEventListener('focus',()=>{if(active)flower.classList.add('is-active')});
+  }
+
   // Light progressive enhancement; content never disappears without JS.
   if('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches){
     const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{
