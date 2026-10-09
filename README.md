@@ -47,3 +47,8 @@ Toutes les pages incluent `noindex,nofollow` et le `robots.txt` interdit l'index
 ## Sources et audit
 
 Consulter [AUDIT.md](AUDIT.md), ainsi que [assets/README.md](assets/README.md). Pour les contenus éditoriaux, la maquette renvoie vers `floreview.com/fr/` au lieu de dupliquer les articles. Les liens d'adhésion restent sur le site officiel.
+
+
+## Mise à jour V6.1
+
+Cette version remplace le logo conceptuel par le logo Floreview fourni par l’utilisateur, intégré avec fond transparent dans l’en-tête, le pied de page, la recherche et le favicon.
