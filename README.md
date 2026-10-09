@@ -1,3 +1,13 @@
+# Floreview V7 — proposition non officielle de refonte
+
+Cette V7 conserve **le logo rose transmis par l’utilisateur**, l’esthétique émotionnelle ivoire/corail/sauge et les animations florales, avec une bibliothèque de 16 ressources officielles et trois parcours métiers. Les liens mènent à leurs sources originales ; il n’y a pas d’intégration du CMS ni d’espace membre.
+
+Lire **INSTALLATION-V7.md** pour la liste exacte des modifications et la publication sur GitHub Pages.
+
+---
+
+## Historique des concepts précédents
+
 # Floreview — proposition de refonte ciel & fleurs (2026)
 
 **Version actuelle :** interface blanche et bleu cobalt, portrait de fleuriste, scènes florales, nuages et soleil animés. Toutes les photos principales sont des créations originales locales. Voir `GUIDE-REFONTE-CIEL-2026.md`.

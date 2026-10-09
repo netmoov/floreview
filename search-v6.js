@@ -14,6 +14,7 @@
   let selected = -1;
 
   const pages = [
+    {title:'Ressources métiers', subtitle:'Inspiration, skills, international et presse', kind:'Bibliothèque', url:'ressources.html', keywords:'services ressources contenus métier tutoriels pratiques'},
     {title:'Presse & médias', subtitle:'Actualités, interviews et contacts presse', kind:'Rubrique', url:'presse.html', keywords:'communication medias newsroom communiqué journalistes presse dossiers'},
     {title:'Commerce international', subtitle:'Marchés floraux, échanges et tendances mondiales', kind:'Rubrique', url:'international.html', keywords:'marchés commerce trade fleurs monde import export réseau international'},
     {title:'Skills & savoir-faire', subtitle:'Techniques, métiers et transmission', kind:'Rubrique', url:'savoir-faire.html', keywords:'skills formation apprentissage compétences fleuristes méthodes métiers'},
@@ -33,7 +34,10 @@
     url: a.url,
     keywords: [a.tag,a.category].filter(Boolean).join(' ')
   }));
-  const entries = [...pages,...articles];
+  const resources = (Array.isArray(window.FLOREVIEW_RESOURCES_V7) ? window.FLOREVIEW_RESOURCES_V7 : []).map(r=>({
+    title:r.title, subtitle:r.description, kind:r.type, url:r.url, keywords:[r.keywords,r.category].join(' ')
+  }));
+  const entries = [...pages,...articles,...resources];
   const clean = s => String(s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLocaleLowerCase('fr').trim();
   const escapeHtml = s => String(s).replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
 
